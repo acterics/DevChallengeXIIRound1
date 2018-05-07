@@ -1,0 +1,59 @@
+ext {
+    //Android
+    androidBuildToolsVersion = '27.0.3'
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    kotlinVersion = '1.2.40'
+
+
+    androidSupportLibraryVersion = '27.0.2'
+    androidSupportConstrainLayoutVersion = '1.1.0'
+
+    recyclerViewAnimatorsVersion = '2.3.0'
+    roomVersion = '1.0.0'
+    daggerVersion = '2.11'
+    moxyVersion = '1.5.3'
+    javaxAnnotationsVersion = '1.0'
+
+
+    rxJavaVersion = '2.1.5'
+    rxKotlinVersion = '2.1.0'
+    rxAndroidVersion = '2.0.1'
+
+    //Testing
+    jUnitVersion = '4.12'
+    jUnitPlatformVersion = '1.0.1'
+    spekVersion = '1.1.5'
+    mockkVersion = '1.7.10'
+
+    dependencies = [
+            kotlinStdLib: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion",
+            supportAppCompatV7: "com.android.support:appcompat-v7:$androidSupportLibraryVersion",
+            supportConstraintLayout: "com.android.support.constraint:constraint-layout:$androidSupportConstrainLayoutVersion",
+            supportAnnotations: "com.android.support:support-annotations:$androidSupportLibraryVersion",
+            dagger: "com.google.dagger:dagger:$daggerVersion",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+            javaxAnnotations: "javax.annotation:jsr250-api:$javaxAnnotationsVersion",
+            rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            room: "android.arch.persistence.room:runtime:$roomVersion",
+            roomRx: "android.arch.persistence.room:rxjava2:$roomVersion",
+            roomCompiler: "android.arch.persistence.room:compiler:$roomVersion",
+
+            moxy: "com.arello-mobile:moxy-app-compat:$moxyVersion",
+            moxyAppCompat: "com.arello-mobile:moxy-app-compat:$moxyVersion",
+            moxyAndroid: "com.arello-mobile:moxy-android:$moxyVersion",
+            moxyCompiler: "com.arello-mobile:moxy-compiler:$moxyVersion",
+
+
+            jUnit: "junit:junit:$jUnitVersion",
+            spek: "org.jetbrains.spek:spek-api:$spekVersion",
+            spekJUnitPlatformEngine: "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion",
+            jUnitPlatformRunner: "org.junit.platform:junit-platform-runner:$jUnitPlatformVersion",
+            jUnitPlatformEngine: "org.junit.platform:junit-platform-engine:$jUnitPlatformVersion",
+            mockk: "io.mockk:mockk:$mockkVersion"
+    ]
+}
