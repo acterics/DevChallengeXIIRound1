@@ -1,16 +1,14 @@
 package it.devchallenge.snake.presentation.snakefield
 
-import android.graphics.Point
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.Completable
 import io.reactivex.Maybe
-import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.rxkotlin.toSingle
 import it.devchallenge.snake.domain.exception.EndOfGameException
-import it.devchallenge.snake.domain.model.*
+import it.devchallenge.snake.domain.model.Field
+import it.devchallenge.snake.domain.model.GameState
 import it.devchallenge.snake.domain.repository.GameEventRepository
 import it.devchallenge.snake.domain.repository.PlayerEventRepository
 import it.devchallenge.snake.domain.repository.SnakeStateRepository
