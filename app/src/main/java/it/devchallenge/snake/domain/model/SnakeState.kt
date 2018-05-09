@@ -4,7 +4,7 @@ import android.graphics.Point
 import java.util.*
 
 data class SnakeState(var direction: Direction,
-                      val cells: Queue<Point>) {
+                      val cells: Deque<Point>) {
 
 
 }
