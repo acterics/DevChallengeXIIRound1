@@ -77,6 +77,10 @@ dependencies {
     implementation dependencies.moxyAndroid
     kapt dependencies.moxyCompiler
 
+    implementation dependencies.firebase
+
+    implementation dependencies.firebaseDatabase
+
 
     testImplementation dependencies.jUnitPlatformEngine
     testImplementation(dependencies.spek) {
@@ -90,3 +94,5 @@ dependencies {
 
 
 }
+
+apply plugin: 'com.google.gms.google-services'
