@@ -1,0 +1,27 @@
+<html>
+
+<body>
+
+  <input class='controller' type="button" id='LEFT' value="Left" />
+  <input class='controller' type="button" id='TOP' value="Top" />
+  <input class='controller' type="button" id='RIGHT' value="Right" />
+  <input class='controller' type="button" id='BOTTOM' value="Bottom" />
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyAq3W3Ijv_7nGJ3fxl_TGlM3mp2NzWVfHg",
+      authDomain: "it-devchallenge-snake.firebaseapp.com",
+      databaseURL: "https://it-devchallenge-snake.firebaseio.com",
+      projectId: "it-devchallenge-snake",
+      storageBucket: "it-devchallenge-snake.appspot.com",
+      messagingSenderId: "529085676735"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
