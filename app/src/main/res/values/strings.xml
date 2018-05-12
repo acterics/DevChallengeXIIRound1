@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Snake</string>
+    <string name="control_type">Control Type</string>
+    <string name="accelerometer">Accelerometer</string>
+    <string name="network">Network</string>
+    <string name="camera">Camera</string>
+    <string name="microphone">Microphone</string>
+    <string name="additional_control_config">Additional control config</string>
+    <string name="sense">Sense</string>
+    <string name="hint_game_name">Game name</string>
+    <string name="field_type">Field Type</string>
+    <string name="with_borders">With Borders</string>
+    <string name="borderless">Borderless</string>
+    <string name="generate_obstacles">Generate obstacles</string>
+    <string name="obstacles_type">Obstacles type</string>
+    <string name="normal">Normal</string>
+    <string name="difficult">Difficult</string>
+    <string name="custom">Custom</string>
+    <string name="additional_field_config">Additional field config</string>
+    <string name="snake_speed">Snake speed</string>
+    <string name="start">Start</string>
 </resources>

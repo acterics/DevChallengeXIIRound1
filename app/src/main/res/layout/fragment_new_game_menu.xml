@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvControlType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/control_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/holderControlTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tvControlType"
+        app:layout_constraintTop_toBottomOf="@+id/tvControlType">
+
+        <RadioButton
+            android:id="@+id/rbtAccelerometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/accelerometer" />
+
+        <RadioButton
+            android:id="@+id/rbtNetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/network" />
+
+        <RadioButton
+            android:id="@+id/btCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/camera" />
+
+        <RadioButton
+            android:id="@+id/rbtMicrophone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/microphone" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvAdditionalControl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/additional_control_config"
+        app:layout_constraintBottom_toBottomOf="@+id/tvControlType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrierMainConfig"
+        app:layout_constraintTop_toTopOf="@+id/tvControlType" />
+
+    <TextView
+        android:id="@+id/tvSense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/sense"
+        app:layout_constraintStart_toStartOf="@+id/tvAdditionalControl"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdditionalControl" />
+
+
+    <TextView
+        android:id="@+id/tvSensePointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSense"
+        app:layout_constraintEnd_toEndOf="@+id/sbSense"
+        app:layout_constraintTop_toTopOf="@+id/tvSense"
+        tools:text="0" />
+
+    <SeekBar
+        android:id="@+id/sbSense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvAdditionalControl"
+        app:layout_constraintTop_toBottomOf="@+id/tvSense" />
+
+    <EditText
+        android:id="@+id/etNetworkGameName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textShortMessage"
+        android:hint="@string/hint_game_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvAdditionalControl"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdditionalControl" />
+
+    <View
+        android:id="@+id/dividerControlConfig"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierControlConfig" />
+
+    <TextView
+        android:id="@+id/tvFieldType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/field_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerControlConfig" />
+
+    <RadioGroup
+        android:id="@+id/holderFieldTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tvFieldType"
+        app:layout_constraintTop_toBottomOf="@+id/tvFieldType">
+
+        <RadioButton
+            android:id="@+id/rbBordered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/with_borders" />
+
+        <RadioButton
+            android:id="@+id/rbBorderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/borderless" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/chbtObstacles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/generate_obstacles"
+        app:layout_constraintStart_toStartOf="@+id/holderFieldTypes"
+        app:layout_constraintTop_toBottomOf="@+id/holderFieldTypes" />
+
+    <TextView
+        android:id="@+id/tvObstaclesType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/obstacles_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvAdditionalFieldConfig"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdditionalFieldConfig" />
+
+    <RadioGroup
+        android:id="@+id/holderObstaclesTypes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvAdditionalFieldConfig"
+        app:layout_constraintTop_toBottomOf="@+id/tvObstaclesType">
+
+        <RadioButton
+            android:id="@+id/rbtObstaclesNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/normal" />
+
+        <RadioButton
+            android:id="@+id/rbtObstaclesDifficult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/difficult" />
+
+        <RadioButton
+            android:id="@+id/rbtObstaclesCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/custom" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvAdditionalFieldConfig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/additional_field_config"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFieldType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrierMainConfig"
+        app:layout_constraintTop_toTopOf="@+id/tvFieldType" />
+
+    <View
+        android:id="@+id/dividerFieldConfig"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrierFieldConfig" />
+
+    <TextView
+        android:id="@+id/tvSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/snake_speed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerFieldConfig" />
+
+    <Button
+        android:id="@+id/btStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SeekBar
+        android:id="@+id/sbSnakeSpeed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpeed" />
+
+    <TextView
+        android:id="@+id/tvSnakeSpeedPointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
+        app:layout_constraintEnd_toEndOf="@+id/sbSnakeSpeed"
+        app:layout_constraintTop_toTopOf="@+id/tvSpeed"
+        tools:text="0" />
+
+    <android.support.constraint.Group
+        android:id="@+id/groupNetworkControlConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="etNetworkGameName" />
+
+    <android.support.constraint.Group
+        android:id="@+id/groupAccelerometerConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvSense,sbSense, tvSensePointer" />
+
+    <android.support.constraint.Group
+        android:id="@+id/groupObstaclesConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvObstaclesType,holderObstaclesTypes" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrierFieldConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="holderObstaclesTypes,chbtObstacles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrierControlConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="holderControlTypes,etNetworkGameName,sbSense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrierMainConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="holderFieldTypes,chbtObstacles,holderControlTypes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
