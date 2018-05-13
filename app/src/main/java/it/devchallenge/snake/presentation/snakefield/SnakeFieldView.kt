@@ -9,4 +9,6 @@ import it.devchallenge.snake.domain.model.SnakeState
 @StateStrategyType(SkipStrategy::class)
 interface SnakeFieldView: MvpView {
     fun invalidateField(field: Field, snakeState: SnakeState)
+    fun invalidateScore(score: Int)
+
 }

@@ -1,6 +1,5 @@
 package it.devchallenge.snake.presentation.snakefield
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.Completable
@@ -24,17 +23,19 @@ class SnakeFieldPresenter(private val field: Field,
 
     private var playerEventsDisposable: Disposable? = null
     private var gameEventsDisposable: Disposable? = null
-
+    private var scoreDisposable: Disposable? = null
 
 
     override fun attachView(view: SnakeFieldView?) {
         super.attachView(view)
-        Log.e("DEBUG", "attachView: ")
         playerEventsDisposable = playerEventRepository.getPlayerEvents()
-                .doOnNext { Log.e("DEBUG", "$it") }
                 .doOnNext { playerEvent -> gameState.playerEvents.add(playerEvent) }
                 .flatMapCompletable { event -> snakeStateRepository.changeSnakeDirection(event.direction) }
                 .subscribe()
+
+        scoreDisposable = snakeStateRepository
+                .getSnakeScore()
+                .subscribe { score -> viewState.invalidateScore(score) }
 
 
         gameEventsDisposable = gameEventRepository.getGameEvents()
@@ -67,6 +68,7 @@ class SnakeFieldPresenter(private val field: Field,
         super.detachView(view)
         playerEventsDisposable?.dispose()
         gameEventsDisposable?.dispose()
+        scoreDisposable?.dispose()
     }
 
 
@@ -80,5 +82,6 @@ class SnakeFieldPresenter(private val field: Field,
     private fun onEndOfGame() {
         playerEventsDisposable?.dispose()
         gameEventsDisposable?.dispose()
+        scoreDisposable?.dispose()
     }
 }

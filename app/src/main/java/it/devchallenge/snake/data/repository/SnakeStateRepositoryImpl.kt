@@ -3,6 +3,7 @@ package it.devchallenge.snake.data.repository
 import android.graphics.Point
 import android.util.Log
 import io.reactivex.*
+import io.reactivex.subjects.PublishSubject
 import it.devchallenge.snake.common.extension.borderlessMovedPoint
 import it.devchallenge.snake.common.extension.movedPoint
 import it.devchallenge.snake.common.extension.select
@@ -10,21 +11,26 @@ import it.devchallenge.snake.domain.exception.EndOfGameException
 import it.devchallenge.snake.domain.executor.ExecutionScheduler
 import it.devchallenge.snake.domain.model.Direction
 import it.devchallenge.snake.domain.model.Field
-import it.devchallenge.snake.domain.model.FieldType
 import it.devchallenge.snake.domain.model.SnakeState
 import it.devchallenge.snake.domain.repository.SnakeStateRepository
 import java.util.*
 import java.util.concurrent.LinkedBlockingDeque
 
-class SnakeStateRepositoryImpl(private val field: Field,
-                               private val initialLength: Int,
+class SnakeStateRepositoryImpl(field: Field,
+                               initialLength: Int,
                                private val executionScheduler: ExecutionScheduler):
         SnakeStateRepository {
 
     private val snakeState: SnakeState
     private var currentScore: Int = 0
+        set(value) {
+            scoreSubject.onNext(value)
+            field = value
+        }
     private var currentDirection: Direction
 
+
+    private val scoreSubject = PublishSubject.create<Int>()
 
     init {
         var currentHead = Point(field.width / 2 - initialLength, field.height / 2)
@@ -89,6 +95,7 @@ class SnakeStateRepositoryImpl(private val field: Field,
     override fun requestFoodPosition(field: Field): Maybe<Point> {
         return Maybe.fromCallable {
             if (snakeState.cells.last == field.foodPosition) {
+                currentScore++
                 generateFoodPosition(field)
             } else {
                 null
@@ -100,11 +107,16 @@ class SnakeStateRepositoryImpl(private val field: Field,
         return Single.just(snakeState)
     }
 
-//    override fun getSnakeScore(): Flowable<Int> {
-//        Flowable.create<Int>({ emitter ->
-//            emitter.
-//        }, BackpressureStrategy.ERROR)
-//    }
+    override fun incrementScore(): Completable {
+        return Completable.fromAction {
+            currentScore++
+        }.compose(executionScheduler.highPriorityCompletable())
+    }
+
+    override fun getSnakeScore(): Flowable<Int> {
+        return scoreSubject.toFlowable(BackpressureStrategy.ERROR)
+                .compose(executionScheduler.highPriorityFlowable())
+    }
 
     private fun generateFoodPosition(field: Field): Point {
         val random = Random()

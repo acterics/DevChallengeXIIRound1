@@ -25,7 +25,7 @@ interface SnakeStateRepository {
     fun requestFoodPosition(field: Field): Maybe<Point>
 
     fun getCurrentSnakeState(): Single<SnakeState>
-//    fun getSnakeScore(): Flowable<Int>
-
+    fun getSnakeScore(): Flowable<Int>
+    fun incrementScore(): Completable
 
 }

@@ -67,4 +67,8 @@ class SnakeFieldFragment: BaseScopedFragment(), SnakeFieldView {
     override fun invalidateField(field: Field, snakeState: SnakeState) {
         vSnakeField.invalidateField(field, snakeState)
     }
+
+    override fun invalidateScore(score: Int) {
+        tvScore.text = "$score"
+    }
 }
