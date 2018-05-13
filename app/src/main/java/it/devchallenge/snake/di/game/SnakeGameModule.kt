@@ -9,9 +9,10 @@ import it.devchallenge.snake.domain.model.FieldContainer
 import it.devchallenge.snake.domain.model.FieldType
 import it.devchallenge.snake.domain.model.GameConfiguration
 import it.devchallenge.snake.domain.repository.FieldRepository
+import it.devchallenge.snake.ui.snakegame.SnakeGameActivity
 
 @Module
-class SnakeGameModule(private val gameConfiguration: GameConfiguration) {
+class SnakeGameModule(private val snakeGameActivity: SnakeGameActivity) {
 
     @ActivityScope
     @Provides
@@ -21,13 +22,19 @@ class SnakeGameModule(private val gameConfiguration: GameConfiguration) {
 
     @ActivityScope
     @Provides
-    fun provideFieldType(): FieldType {
+    fun provideGameConfiguration(): GameConfiguration {
+        return snakeGameActivity.gameConfiguration
+    }
+
+    @ActivityScope
+    @Provides
+    fun provideFieldType(gameConfiguration: GameConfiguration): FieldType {
         return gameConfiguration.fieldType
     }
 
     @ActivityScope
     @Provides
-    fun provideControlType(): ControlType {
+    fun provideControlType(gameConfiguration: GameConfiguration): ControlType {
         return gameConfiguration.controlType
     }
 

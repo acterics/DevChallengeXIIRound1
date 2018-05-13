@@ -4,11 +4,13 @@ import android.util.Log
 import com.google.firebase.database.*
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
+import it.devchallenge.snake.domain.model.ControlType
 import it.devchallenge.snake.domain.model.Direction
 import it.devchallenge.snake.domain.model.PlayerEvent
 import it.devchallenge.snake.domain.repository.PlayerEventRepository
 
-class FirebaseNetworkPlayerEventRepository(private val databaseDirectionReference: DatabaseReference): PlayerEventRepository {
+class FirebaseNetworkPlayerEventRepository(private val databaseDirectionReference: DatabaseReference,
+                                           private val config: ControlType.Network): PlayerEventRepository {
 
 
     override fun getPlayerEvents(): Flowable<PlayerEvent> {

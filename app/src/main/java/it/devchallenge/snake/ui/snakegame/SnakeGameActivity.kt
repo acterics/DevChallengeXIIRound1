@@ -16,13 +16,13 @@ class SnakeGameActivity: BaseScopedActivity() {
 
 
 
-    private val gameConfiguration by lazy<GameConfiguration> {
+    internal val gameConfiguration by lazy<GameConfiguration> {
         intent.getParcelableExtra(EXTRA_GAME_CONFIGURATION)
     }
 
     private var component by subcomponent(SnakeGameComponent.NAME) {
         snakeGameComponentBuilder()
-                .requestSnakeGameModule(SnakeGameModule(gameConfiguration))
+                .requestSnakeGameModule(SnakeGameModule(this@SnakeGameActivity))
                 .build()
     }
 

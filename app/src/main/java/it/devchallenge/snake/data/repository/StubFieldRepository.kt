@@ -13,8 +13,8 @@ class StubFieldRepository(private val context: Context,
                           private val fieldType: FieldType): FieldRepository {
     override fun getField(): Single<Field> {
         val random = Random()
-        val width = context.resources.displayMetrics.widthPixels / 100
-        val height = context.resources.displayMetrics.heightPixels / 100
+        val width = context.resources.displayMetrics.widthPixels / 50
+        val height = context.resources.displayMetrics.heightPixels / 50
         return Field(
                 width = width,
                 height = height,

@@ -10,7 +10,7 @@ import it.devchallenge.snake.domain.model.Field
 import it.devchallenge.snake.domain.model.SnakeState
 
 interface SnakeStateRepository {
-    fun makeSnakeStep(): Completable
+    fun makeSnakeStep(field: Field): Completable
     fun changeSnakeDirection(direction: Direction): Completable
 
 
@@ -25,5 +25,7 @@ interface SnakeStateRepository {
     fun requestFoodPosition(field: Field): Maybe<Point>
 
     fun getCurrentSnakeState(): Single<SnakeState>
+//    fun getSnakeScore(): Flowable<Int>
+
 
 }

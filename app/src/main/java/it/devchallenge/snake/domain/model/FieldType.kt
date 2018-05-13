@@ -1,7 +1,8 @@
 package it.devchallenge.snake.domain.model
 
-enum class FieldType {
-    DEFAULT,
-    BORDERLESS,
-    COMPLEX
-}
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class FieldType(val hasBorders: Boolean,
+                     val obstaclesType: ObstaclesType): Parcelable

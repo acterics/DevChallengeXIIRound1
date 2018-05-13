@@ -17,8 +17,8 @@ class PlayerEventRepositoryFactory
 
     fun create(controlType: ControlType): PlayerEventRepository {
         return when(controlType) {
-            ControlType.ACCELEROMETER -> AccelerometerPlayerEventRepository(sensorManager)
-            ControlType.NETWORK -> FirebaseNetworkPlayerEventRepository(databaseDirectionReference)
+            is ControlType.Accelerometer -> AccelerometerPlayerEventRepository(sensorManager, controlType)
+            is ControlType.Network -> FirebaseNetworkPlayerEventRepository(databaseDirectionReference, controlType)
             else -> StubPlayerEventRepository(executionScheduler)
         }
     }
